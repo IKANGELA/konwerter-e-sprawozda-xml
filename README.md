@@ -4,7 +4,7 @@ Zamienia e-sprawozdanie finansowe złożone do KRS (plik XML, także podpisany `
 na czytelny arkusz Excel: bilans i rachunek zysków i strat z **oficjalnymi polskimi nazwami pozycji**
 zamiast kodów takich jak `Aktywa_B_III_1_C`.
 
-**▶ Wersja online:** https://ikangela.github.io/konwerter-e-sprawozdan/
+**▶ Wersja online:** https://ikangela.github.io/konwerter-e-sprawozda-xml/
 
 Konwersja działa **w całości w przeglądarce** – Python uruchamia się lokalnie dzięki
 [Pyodide](https://pyodide.org) (WebAssembly). Plik ze sprawozdaniem nie jest nigdzie wysyłany.
