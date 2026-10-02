@@ -1,0 +1,39 @@
+<!-- ==================================================
+     KONWERTER E-SPRAWOZDAŃ – osadzenie na ikangela.pl
+     Wklej w blok „Własny HTML” (Custom HTML) na podstronie WordPressa.
+     Konwerter działa z GitHub Pages; ta ramka tylko go wyświetla.
+     ================================================== -->
+<div class="ika-konwerter">
+    <iframe
+        id="ika-konwerter-ramka"
+        src="https://ikangela.github.io/konwerter-e-sprawozda-xml/"
+        title="Konwerter e-sprawozdań do Excela"
+        loading="lazy"
+        referrerpolicy="no-referrer"></iframe>
+</div>
+
+<style>
+.ika-konwerter {
+    max-width: 900px;
+    margin: 0 auto;
+}
+.ika-konwerter iframe {
+    display: block;
+    width: 100%;
+    height: 1000px;          /* wysokość startowa – potem dopasowuje się sama */
+    border: 0;
+    background: #f8f7f5;
+}
+</style>
+
+<script>
+/* Ramka sama dopasowuje wysokość do treści konwertera (bez podwójnego paska przewijania).
+   Przyjmujemy wiadomości wyłącznie od konwertera z ikangela.github.io i tylko liczbę. */
+window.addEventListener("message", function (e) {
+    if (e.origin !== "https://ikangela.github.io") return;
+    var h = e.data && e.data.konwerterWysokosc;
+    if (typeof h === "number" && h > 200 && h < 5000) {
+        document.getElementById("ika-konwerter-ramka").style.height = h + "px";
+    }
+});
+</script>

@@ -166,8 +166,11 @@ $("przyklad").addEventListener("click", async () => {
 
 // --- 5. Osadzenie na ikangela.pl: strona podaje swoją wysokość ramce (iframe).
 // Wysyłana jest wyłącznie liczba (wysokość w pikselach), nigdy treść sprawozdania.
+// Mierzymy samą treść (body), a nie okno ramki - dzięki temu ramka umie też się zmniejszyć,
+// np. po wyczyszczeniu wyniku.
 new ResizeObserver(() => {
-    window.parent.postMessage({ konwerterWysokosc: document.documentElement.scrollHeight }, "*");
+    const wysokosc = Math.ceil(document.body.getBoundingClientRect().height);
+    window.parent.postMessage({ konwerterWysokosc: wysokosc }, "*");
 }).observe(document.body);
 
 uruchom();
